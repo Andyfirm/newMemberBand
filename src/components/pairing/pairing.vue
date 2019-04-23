@@ -31,13 +31,13 @@ export default {
         if (res.data.msg === 'Success') {
           alert('绑定成功')
           localStorage.setItem('mac', this.macNumber)
-          this.$router.push({ name: 'index' })
+          this.$router.push({ name: 'indexBand' })
         } else if (res.data.msg === 'Bind') {
           alert('该手环已被绑定，请选择其他手环')
         } else if (res.data.msg === 'NonExistent') {
           alert('手环不存在，请确认MAC地址')
           localStorage.setItem('mac', this.macNumber)
-          this.$router.push({ name: 'index' })
+          this.$router.push({ name: 'indexBand' })
         } else {
           alert('绑定失败')
         }

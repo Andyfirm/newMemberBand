@@ -57,7 +57,7 @@ export default {
       publicUrl(this.params).then((res) => {
         sessionStorage.setItem('infoData', res)
         console.log(res)
-        this.$router.push({path: 'index'})
+        this.$router.push({path: 'indexBand'})
       }).catch((msg) => {
         alert('网络错误')
       })

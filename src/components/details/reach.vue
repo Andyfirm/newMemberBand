@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     back () {
-      this.$router.push({ name: 'index' })
+      this.$router.push({ name: 'indexBand' })
     }
   }
 }

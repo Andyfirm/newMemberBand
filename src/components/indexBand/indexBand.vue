@@ -137,7 +137,7 @@ import echatsBiao from '../common/echatsBiao'
 import foo from './indexchild/footer'
 import { publicUrl } from '../../api/index.js'
 export default {
-  name: 'index',
+  name: 'indexBand',
   components: {
     echatsBiao: echatsBiao,
     // days: days,
