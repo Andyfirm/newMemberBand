@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  padding: 0.2rem;
+  background-color: #f6f6f6;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.clear:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.mint-swipe-indicators {
+  height: 10px;
+  bottom: 10px;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+.mint-swipe-indicators .mint-swipe-indicator {
+  width: 8px;
+  margin: 0 4px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
+.mint-swipe-indicator.is-active {
+  background-color: #fff !important;
+}
+.mint-swipe-indicator {
+  opacity: 1 !important;
+}
+.swiper-pagination .swiper-pagination-bullet {
+  float: left;
+  display: block;
+  margin: 0 0.06rem;
+}
+.mint-popup-bottom {
+  z-index: 1;
+}
+.mint-swipe-items-wrap {
+  padding-bottom: 50%;
+}
+.mint-indicator-text {
+  display: block;
+  color: #999;
+  text-align: center;
+  margin-top: 0.05rem;
+  font-size: 0.3rem;
+  float: left;
+  margin-left: 0.2rem;
+  margin-top: rem;
+}
+.mint-indicator-wrapper {
+  background-color: transparent !important;
+}
+.mint-indicator-spin {
+  float: left !important;
+}
+.mint-spinner-snake {
+  width: 0.24rem !important;
+  height: 0.24rem !important;
+  border: 1px solid transparent !important;
+  border-top-color: rgb(204, 204, 204) !important;
+  border-left-color: rgb(204, 204, 204) !important;
+  border-bottom-color: rgb(204, 204, 204) !important;
+}
+.mint-indicator-text {
+  float: left !important;
+  margin-top: -0.05rem !important;
+  font-size: 0.28rem !important;
+  color: #999 !important;
+}
+.mint-toast-text {
+  font-size: 0.28rem !important;
+}
+.mint-toast {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: #7fc0fd !important;
+}
+.icon-caozuochenggong:before {
+  font-size: 0.8rem;
+}
+.picker-toolbar {
+  height: 40px;
+  font-size: 0.38rem;
+  text-align: right;
+  line-height: 40px;
+  margin-right: 10px;
+  color: #26a2ff;
+}
+.picker-slot {
+  font-size: 0.36rem !important;
+}
+.mui-pull-caption,
+.mui-pull-caption {
+  text-align: center;
+}
+.wqpBox .init,
+.yqpBox .init {
+  font-size: 0.36rem;
+  text-align: center;
+  line-height: 2rem;
+  color: #666;
+}
