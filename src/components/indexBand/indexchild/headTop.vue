@@ -1,21 +1,24 @@
 <template>
   <div class="head">
     <div class="top">
-      <img src="@/assets/images/jiantou_l.png" alt="">
-      <img src="@/assets/images/set.png" alt="" @click="gomyset()">
+      <img src="@/assets/images/jiantou_l.png" alt>
+      <img src="@/assets/images/set.png" alt @click="gomyset()">
     </div>
     <div class="bigCircle" :class="{ 'active': isActive }">
       <div class="xiaoyuanBox">
         <div class="l_Box">
-            <div class="l_yuan"></div>
+          <div class="l_yuan"></div>
         </div>
         <div class="r_Box">
-            <div v-show="this.isActive" class="r_yuan" :class="{ 'active': isActive }"></div>
+          <div v-show="this.isActive" class="r_yuan" :class="{ 'active': isActive }"></div>
         </div>
       </div>
       <div v-show="this.changeHide" class="tishiyu">正在加载数据...</div>
       <div class="tinyCircle" :class="{ 'active': isActive }">
-        <div v-show="!this.changeHide"><span class="step">{{this.stepcount}}</span><span class="text">步数</span></div>
+        <div v-show="!this.changeHide">
+          <span class="step">{{this.stepcount}}</span>
+          <span class="text">步数</span>
+        </div>
       </div>
     </div>
     <div class="headerItem">
@@ -42,7 +45,7 @@
 <script>
 export default {
   name: 'headTop',
-  data () {
+  data() {
     return {
       changeHide: true,
       isActive: false,
@@ -56,19 +59,21 @@ export default {
       }
     }
   },
-  created () {
+  created() {
     this.fnTime()
     this.infoData = JSON.parse(sessionStorage.getItem('infoData'))
     this.stepcount = this.infoData.broadcastData.stepCount
   },
-  mounted () {
-    document.querySelector('body').setAttribute('style', 'background-color:#f2f2f2')
+  mounted() {
+    document
+      .querySelector('body')
+      .setAttribute('style', 'background-color:#f2f2f2')
   },
   methods: {
-    gomyset () {
+    gomyset() {
       this.$router.push({ path: '../mySet/myset' })
     },
-    fnTime () {
+    fnTime() {
       setTimeout(() => {
         this.changeHide = false
         this.isActive = true
@@ -78,33 +83,37 @@ export default {
 }
 </script>
 <style scoped>
-.head{
+.head {
   width: 100%;
   height: 8rem;
-  background:linear-gradient(0deg,rgba(141,187,250,1) 0%,rgba(135,245,179,1) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(141, 187, 250, 1) 0%,
+    rgba(135, 245, 179, 1) 100%
+  );
   justify-content: center;
   display: flex;
   position: relative;
 }
-.top{
+.top {
   position: absolute;
   top: 0.4rem;
   width: 100%;
   height: 0.4rem;
 }
-.top img:nth-child(1){
+.top img:nth-child(1) {
   width: 0.3rem;
   height: 0.42rem;
   float: left;
   margin-left: 0.4rem;
 }
-.top img:nth-child(2){
+.top img:nth-child(2) {
   width: 0.4rem;
   height: 0.42rem;
   float: right;
   margin-right: 0.4rem;
 }
-.bigCircle{
+.bigCircle {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -119,8 +128,8 @@ export default {
   box-sizing: border-box;
 }
 .bigCircle.active {
-    background-image: url('~@/assets/images/ddd.gif');
-    animation: mymove 0.5s 1;
+  background-image: url('~@/assets/images/ddd.gif');
+  animation: mymove 0.5s 1;
 }
 @keyframes mymove {
   0% {
@@ -136,22 +145,23 @@ export default {
     transform: scale(1);
   }
 }
-.xiaoyuanBox{
-    position: absolute;
-    left: 0.66rem;
-    top: 0.57rem;
-    width: 3.54rem;
-    height: 3.54rem;
-    /* border: 3px solid #fff; */
-    border-radius: 50%;
+.xiaoyuanBox {
+  position: absolute;
+  left: 0.66rem;
+  top: 0.57rem;
+  width: 3.54rem;
+  height: 3.54rem;
+  /* border: 3px solid #fff; */
+  border-radius: 50%;
 }
 .l_Box {
-    left: 0;
+  left: 0;
 }
 .r_Box {
   right: 0;
 }
-.l_Box, .r_Box {
+.l_Box,
+.r_Box {
   position: absolute;
   top: 0;
   overflow: hidden;
@@ -214,11 +224,11 @@ export default {
   position: absolute;
 }
 .tinyCircle {
-    width: 3.6rem;
-    height: 3.6rem;
-    margin-left: 0.16rem;
-    border-radius: 50%;
-    box-sizing: border-box;
+  width: 3.6rem;
+  height: 3.6rem;
+  margin-left: 0.16rem;
+  border-radius: 50%;
+  box-sizing: border-box;
 }
 .tinyCircle .step {
   display: block;
@@ -237,8 +247,8 @@ export default {
   color: #fff;
 }
 .tinyCircle.active {
-    margin-left: 0.16rem;
-    background: url('~@/assets/images/ddq.gif') no-repeat center/cover;
+  margin-left: 0.16rem;
+  background: url('~@/assets/images/ddq.gif') no-repeat center/cover;
 }
 .bigCircle .tishiyu {
   position: absolute;
@@ -264,5 +274,4 @@ export default {
   line-height: 0.3rem;
   margin-bottom: 0.1rem;
 }
-
 </style>

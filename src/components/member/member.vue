@@ -1,11 +1,10 @@
 <template>
-  <div>
-  </div>
+  <div></div>
 </template>
 <script>
 import { publicUrl } from '../../api/index.js'
 export default {
-  data () {
+  data() {
     return {
       code: '',
       param: {
@@ -18,9 +17,8 @@ export default {
       }
     }
   },
-  components: {
-  },
-  mounted () {
+  components: {},
+  mounted() {
     this.getInfo()
     // this.getParameter('code')
     // if (!this.code) {
@@ -31,11 +29,14 @@ export default {
   },
   methods: {
     // 获取code
-    getCodeDG () {
-      var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxaec1c79123e95c61&redirect_uri=' + location.href.split('#')[0] + '&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect'
+    getCodeDG() {
+      var url =
+        'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxaec1c79123e95c61&redirect_uri=' +
+        location.href.split('#')[0] +
+        '&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect'
       window.location.href = url
     },
-    getParameter (param) {
+    getParameter(param) {
       var query = window.location.search
       var iLen = param.length
       var iStart = query.indexOf(param)
@@ -47,20 +48,20 @@ export default {
       }
       return query.substring(iStart, iEnd)
     },
-    getCode () {
-      publicUrl(this.param).then(res => {
-
-      })
+    getCode() {
+      publicUrl(this.param).then(res => {})
     },
     // 测试调试接口
-    getInfo () {
-      publicUrl(this.params).then((res) => {
-        sessionStorage.setItem('infoData', res)
-        console.log(res)
-        this.$router.push({path: 'indexBand'})
-      }).catch((msg) => {
-        alert('网络错误')
-      })
+    getInfo() {
+      publicUrl(this.params)
+        .then(res => {
+          sessionStorage.setItem('infoData', res)
+          console.log(res)
+          this.$router.push({ path: 'indexBand' })
+        })
+        .catch(msg => {
+          alert('网络错误')
+        })
     }
   }
 }

@@ -3,21 +3,24 @@
     <mt-loadmore :top-method="loadTop" @translate-change="translateChange" ref="loadmore">
       <div class="head">
         <div class="top">
-          <img src="@/assets/images/jiantou_l.png" alt="">
-          <img src="@/assets/images/set.png" alt="" @click="gomyset()">
+          <img src="@/assets/images/jiantou_l.png" style="display:none;" alt>
+          <img src="@/assets/images/set.png" alt @click="gomyset()">
         </div>
         <div class="bigCircle" :class="{ 'active': isActive }">
           <div class="xiaoyuanBox">
             <div class="l_Box">
-                <div class="l_yuan"></div>
+              <div class="l_yuan"></div>
             </div>
             <div class="r_Box">
-                <div v-show="this.isActive" class="r_yuan" :class="{ 'active': isActive }"></div>
+              <div v-show="this.isActive" class="r_yuan" :class="{ 'active': isActive }"></div>
             </div>
           </div>
           <div v-show="this.changeHide" class="tishiyu">正在加载数据...</div>
           <div class="tinyCircle" :class="{ 'active': isActive }">
-            <div v-show="!this.changeHide"><span class="step">{{this.stepcount}}</span><span class="text">步数</span></div>
+            <div v-show="!this.changeHide">
+              <span class="step">{{this.stepcount}}</span>
+              <span class="text">步数</span>
+            </div>
           </div>
         </div>
         <div class="headerItem">
@@ -118,10 +121,12 @@
         </div>
         <div class="bar">
           <ul>
-            <li v-for="(item, index) in items" :key="index"
+            <li
+              v-for="(item, index) in items"
+              :key="index"
               :style="{ height:  item.heightrem + 'rem'}"
-              :class="{ 'active': !item.showColor }">
-            </li>
+              :class="{ 'active': !item.showColor }"
+            ></li>
             <!-- <span>4-9</span> -->
           </ul>
           <div class="line"></div>
@@ -129,21 +134,24 @@
       </div>
       <foo></foo>
     </mt-loadmore>
+    <footer-nav :page="4"></footer-nav>
   </div>
 </template>
 
 <script>
 import echatsBiao from '../common/echatsBiao'
 import foo from './indexchild/footer'
+import footerNav from '../footer/footerNav'
 import { publicUrl } from '../../api/index.js'
 export default {
   name: 'indexBand',
   components: {
     echatsBiao: echatsBiao,
     // days: days,
-    foo: foo
+    foo: foo,
+    footerNav: footerNav
   },
-  data () {
+  data() {
     return {
       changeHide: true,
       isActive: false,
@@ -172,150 +180,164 @@ export default {
       wrapperHeight: 0
     }
   },
-  created () {
+  created() {
     this.getData()
   },
   methods: {
-    getData () {
-      publicUrl({ method: 'retrieveData' }).then(res => {
-        console.log(res)
-        if (res.broadcastData !== '') {
-          this.changeHide = false
-          this.isActive = true
-          this.stepcount = res.broadcastData.stepCount
-          this.heartRateNumber = res.broadcastData.heartRate
-        }
-      }).catch((msg) => {
-        alert('网络有问题')
-      })
+    getData() {
+      publicUrl({ method: 'retrieveData' })
+        .then(res => {
+          console.log(res)
+          if (res.broadcastData !== '') {
+            this.changeHide = false
+            this.isActive = true
+            this.stepcount = res.broadcastData.stepCount
+            this.heartRateNumber = res.broadcastData.heartRate
+          }
+        })
+        .catch(msg => {
+          alert('网络有问题')
+        })
     },
-    translateChange (translate) {
+    gomyset() {
+      this.$router.push({ name: 'myset' })
+    },
+    translateChange(translate) {
       const translateNum = +translate
       this.translate = translateNum.toFixed(2)
       this.moveTranslate = (1 + translateNum / 70).toFixed(2)
     },
-    loadTop () {
+    loadTop() {
       this.changeHide = true
       this.isActive = false
       setTimeout(() => {
-        publicUrl({ method: 'retrieveData' }).then(res => {
-          if (res.broadcastData !== '') {
-            this.changeHide = false
-            this.isActive = true
+        publicUrl({ method: 'retrieveData' })
+          .then(res => {
+            if (res.broadcastData !== '') {
+              this.changeHide = false
+              this.isActive = true
+              this.$refs.loadmore.onTopLoaded()
+            }
+          })
+          .catch(msg => {
             this.$refs.loadmore.onTopLoaded()
-          }
-        }).catch((msg) => {
-          this.$refs.loadmore.onTopLoaded()
-        })
+          })
       }, 1500)
     },
     // 睡眠监测
-    gosleepDetail () {
+    gosleepDetail() {
       this.$router.push({ path: '../details/sleepDetails' })
     },
     // 心率监测
-    goheartDetails () {
+    goheartDetails() {
       this.$router.push({ path: '../../details/heartDetails' })
     },
     // 达标天数
-    goReach () {
+    goReach() {
       this.$router.push({ path: '../../details/reach' })
     }
   },
-  mounted () {
+  mounted() {
     setInterval(() => {
       this.nowTime = this.$common.NowTime()
     }, 1000)
-    this.wrapperHeight = document.documentElement.clientHeight - this.$refs.wrapper.getBoundingClientRect().to
+    this.wrapperHeight =
+      document.documentElement.clientHeight -
+      this.$refs.wrapper.getBoundingClientRect().to
   }
 }
 </script>
-<style scope>
-.loading-background, .mint-loadmore-top span {
-    -webkit-transition: .2s linear;
-    transition: .2s linear;
-    font-size: 0.2rem;
+<style scoped>
+.loading-background,
+.mint-loadmore-top span {
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  font-size: 0.2rem;
 }
 .mint-loadmore-top span {
-    display: inline-block;
-    vertical-align: middle
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .mint-loadmore-top span.is-rotate {
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg)
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .page-loadmore .mint-spinner {
-    display: inline-block;
-    vertical-align: middle
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .page-loadmore-desc {
-    text-align: center;
-    color: #666;
-    padding-bottom: 5px
+  text-align: center;
+  color: #666;
+  padding-bottom: 5px;
 }
 
 .page-loadmore-desc:last-of-type,
 .page-loadmore-listitem {
-    border-bottom: 1px solid #eee
+  border-bottom: 1px solid #eee;
 }
 
 .page-loadmore-listitem {
-    height: 1rem;
-    line-height: 1rem;
-    text-align: center;
-    font-size: 0.2rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: 0.2rem;
 }
 
 .page-loadmore-listitem:first-child {
-    border-top: 1px solid #eee
+  border-top: 1px solid #eee;
 }
 
 .page-loadmore-wrapper {
-    overflow: scroll
+  overflow: scroll;
 }
 
 .mint-loadmore-bottom span {
-    display: inline-block;
-    -webkit-transition: .2s linear;
-    transition: .2s linear;
-    vertical-align: middle
+  display: inline-block;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  vertical-align: middle;
 }
 
 .mint-loadmore-bottom span.is-rotate {
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg)
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
-.head{
+.head {
   width: 100%;
   height: 8rem;
-  background:linear-gradient(0deg,rgba(141,187,250,1) 0%,rgba(135,245,179,1) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(141, 187, 250, 1) 0%,
+    rgba(135, 245, 179, 1) 100%
+  );
   justify-content: center;
   display: flex;
   position: relative;
 }
-.top{
+.top {
   position: absolute;
   top: 0.4rem;
   width: 100%;
   height: 0.4rem;
 }
-.top img:nth-child(1){
+.top img:nth-child(1) {
   width: 0.3rem;
   height: 0.42rem;
   float: left;
   margin-left: 0.4rem;
 }
-.top img:nth-child(2){
+.top img:nth-child(2) {
   width: 0.4rem;
   height: 0.42rem;
   float: right;
   margin-right: 0.4rem;
 }
-.bigCircle{
+.bigCircle {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -330,8 +352,8 @@ export default {
   box-sizing: border-box;
 }
 .bigCircle.active {
-    background-image: url('~@/assets/images/ddd.gif');
-    animation: mymove 0.5s 1;
+  background-image: url('~@/assets/images/ddd.gif');
+  animation: mymove 0.5s 1;
 }
 @keyframes mymove {
   0% {
@@ -347,22 +369,23 @@ export default {
     transform: scale(1);
   }
 }
-.xiaoyuanBox{
-    position: absolute;
-    left: 0.66rem;
-    top: 0.57rem;
-    width: 3.54rem;
-    height: 3.54rem;
-    /* border: 3px solid #fff; */
-    border-radius: 50%;
+.xiaoyuanBox {
+  position: absolute;
+  left: 0.66rem;
+  top: 0.57rem;
+  width: 3.54rem;
+  height: 3.54rem;
+  /* border: 3px solid #fff; */
+  border-radius: 50%;
 }
 .l_Box {
-    left: 0;
+  left: 0;
 }
 .r_Box {
   right: 0;
 }
-.l_Box, .r_Box {
+.l_Box,
+.r_Box {
   position: absolute;
   top: 0;
   overflow: hidden;
@@ -425,11 +448,11 @@ export default {
   position: absolute;
 }
 .tinyCircle {
-    width: 3.6rem;
-    height: 3.6rem;
-    margin-left: 0.16rem;
-    border-radius: 50%;
-    box-sizing: border-box;
+  width: 3.6rem;
+  height: 3.6rem;
+  margin-left: 0.16rem;
+  border-radius: 50%;
+  box-sizing: border-box;
 }
 .tinyCircle .step {
   display: block;
@@ -448,8 +471,8 @@ export default {
   color: #fff;
 }
 .tinyCircle.active {
-    margin-left: 0.16rem;
-    background: url('~@/assets/images/ddq.gif') no-repeat center/cover;
+  margin-left: 0.16rem;
+  background: url('~@/assets/images/ddq.gif') no-repeat center/cover;
 }
 .bigCircle .tishiyu {
   position: absolute;
@@ -493,7 +516,7 @@ i {
   width: 0.46rem;
   height: 0.46rem;
   margin-top: 0.08rem;
-  background: url("~@/assets/images/shuimian.png") no-repeat center/contain;
+  background: url('~@/assets/images/shuimian.png') no-repeat center/contain;
 }
 .textBox {
   float: left;
@@ -535,7 +558,7 @@ h6 {
   width: 0.22rem;
   height: 0.38rem;
   margin-top: 0.1rem;
-  background: url("~@/assets/images/jiantou_r.png") no-repeat center/contain;
+  background: url('~@/assets/images/jiantou_r.png') no-repeat center/contain;
 }
 .stateBox {
   overflow: hidden;
@@ -603,10 +626,10 @@ h6 {
   float: left;
   width: 0.46rem;
   height: 0.46rem;
-  background: url("~@/assets/images/shuimian.png") no-repeat center/contain;
+  background: url('~@/assets/images/shuimian.png') no-repeat center/contain;
 }
 .heartRate .l_img {
-  background-image: url("~@/assets/images/xinlv.png");
+  background-image: url('~@/assets/images/xinlv.png');
 }
 .heartRate .number {
   font-size: 0.28rem;
@@ -655,15 +678,15 @@ h6 {
   width: 0.8rem;
   height: 1.4rem;
   background-color: #ffc000;
-  text-align: center
+  text-align: center;
 }
-.bar span{
+.bar span {
   color: wheat;
   font-size: 0.2rem;
   position: absolute;
   bottom: 0rem;
 }
-.bar .active{
+.bar .active {
   background-color: #ccc;
 }
 /* .bar li:nth-child(1) {

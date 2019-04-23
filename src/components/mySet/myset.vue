@@ -1,28 +1,27 @@
 <template>
-<div>
-  <div class="shouhuanBox" @click="pairing()">
-    <div class="shouhuan_icon"></div>
-    <span>手环管理</span>
-    <div class="r_jiantou"></div>
+  <div>
+    <div class="shouhuanBox" @click="pairing()">
+      <div class="shouhuan_icon"></div>
+      <span>手环管理</span>
+      <div class="r_jiantou"></div>
+    </div>
+    <div class="jianshenBox">
+      <div class="jianshen_icon"></div>
+      <span>目标管理</span>
+      <div class="right_input">
+        <input type="number">步
+      </div>
+    </div>
   </div>
-  <div class="jianshenBox">
-    <div class="jianshen_icon"></div>
-    <span>目标管理</span>
-    <div class="right_input"><input type="number">步</div>
-  </div>
-</div>
-
 </template>
 <script>
 export default {
-  data () {
-    return {
-    }
+  data() {
+    return {}
   },
-  components: {
-  },
+  components: {},
   methods: {
-    pairing () {
+    pairing() {
       let mac = localStorage.getItem('mac')
       console.log(mac)
       if (mac) {
@@ -34,7 +33,7 @@ export default {
   }
 }
 </script>
-<style scope>
+<style scoped>
 .shouhuanBox,
 .jianshenBox {
   overflow: hidden;
@@ -53,7 +52,7 @@ export default {
   height: 0.5rem;
   margin-top: -0.04rem;
   margin-right: 0.22rem;
-  background: url("~@/assets/images/shouhuan.png") no-repeat center/contain;
+  background: url('~@/assets/images/shouhuan.png') no-repeat center/contain;
 }
 .jianshen_icon {
   float: left;
@@ -61,7 +60,7 @@ export default {
   height: 0.32rem;
   margin-top: 0.06rem;
   margin-right: 0.14rem;
-  background: url("~@/assets/images/jianshen.png") no-repeat center/contain;
+  background: url('~@/assets/images/jianshen.png') no-repeat center/contain;
 }
 span {
   float: left;
@@ -73,7 +72,7 @@ span {
   float: right;
   width: 0.22rem;
   height: 0.38rem;
-  background: url("~@/assets/images/jiantou_r.png") no-repeat center/contain;
+  background: url('~@/assets/images/jiantou_r.png') no-repeat center/contain;
 }
 .right_input {
   float: right;
@@ -86,5 +85,8 @@ span {
   margin-right: 0.1rem;
   font-size: 0.32rem;
   color: #999;
+}
+input {
+  border: 0;
 }
 </style>

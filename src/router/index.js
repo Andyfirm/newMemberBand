@@ -2,60 +2,79 @@ import Vue from 'vue'
 import Router from 'vue-router'
 const index = () => import('@/components/index/index.vue')
 const orders = () => import('@/components/order/order.vue')
-const stadiumDetails = () => import('@/components/index/secondaryPage/stadiumDetails.vue')
-const ticketsOnline = () => import('@/components/index/secondaryPage/ticketsOnline.vue')
-const ticketRecord = () => import('@/components/index/secondaryPage/ticketRecord.vue')
-const ticketQrCode = () => import('@/components/index/secondaryPage/ticketQrCode.vue')
-const orderDetails = () => import('@/components/index/secondaryPage/orderDetails.vue')
-const onlineClass = () => import('@/components/index/secondaryPage/onlineClass.vue')
-const classDetails = () => import('@/components/index/secondaryPage/classDetails.vue')
+const stadiumDetails = () =>
+  import('@/components/index/secondaryPage/stadiumDetails.vue')
+const ticketsOnline = () =>
+  import('@/components/index/secondaryPage/ticketsOnline.vue')
+const ticketRecord = () =>
+  import('@/components/index/secondaryPage/ticketRecord.vue')
+const ticketQrCode = () =>
+  import('@/components/index/secondaryPage/ticketQrCode.vue')
+const orderDetails = () =>
+  import('@/components/index/secondaryPage/orderDetails.vue')
+const onlineClass = () =>
+  import('@/components/index/secondaryPage/onlineClass.vue')
+const classDetails = () =>
+  import('@/components/index/secondaryPage/classDetails.vue')
 const moreCoach = () => import('@/components/index/secondaryPage/moreCoach.vue')
-const coachingCourse = () => import('@/components/index/secondaryPage/coachingCourse.vue')
-const courseDetails = () => import('@/components/index/secondaryPage/courseDetails.vue')
-const confirmPayment = () => import('@/components/confirmPayment/confirmPayment.vue')
+const coachingCourse = () =>
+  import('@/components/index/secondaryPage/coachingCourse.vue')
+const courseDetails = () =>
+  import('@/components/index/secondaryPage/courseDetails.vue')
+const confirmPayment = () =>
+  import('@/components/confirmPayment/confirmPayment.vue')
 const succeed = () => import('@/components/confirmPayment/succeed.vue')
 const orderSite = () => import('@/components/order/order_child/orderSite.vue')
-const orderLeague = () => import('@/components/order/order_child/orderLeague.vue')
-const orderPersonal = () => import('@/components/order/order_child/orderPersonal.vue')
+const orderLeague = () =>
+  import('@/components/order/order_child/orderLeague.vue')
+const orderPersonal = () =>
+  import('@/components/order/order_child/orderPersonal.vue')
 const purchaseCard = () => import('@/components/purchaseCard/purchaseCard.vue')
 const myCentre = () => import('@/components/my/myCentre.vue')
-const cardRecharge = () => import('@/components/my/mysecondaryPage/cardRecharge')
+const cardRecharge = () =>
+  import('@/components/my/mysecondaryPage/cardRecharge')
 const myOrder = () => import('@/components/my/mysecondaryPage/myOrder')
-const myOrderSite = () => import('@/components/my/mysecondaryPage/myOrder_children/myOrderSite')
-const myOrderLeague = () => import('@/components/my/mysecondaryPage/myOrder_children/myOrderLeague')
-const myOrderPersonal = () => import('@/components/my/mysecondaryPage/myOrder_children/myOrderPersonal')
+const myOrderSite = () =>
+  import('@/components/my/mysecondaryPage/myOrder_children/myOrderSite')
+const myOrderLeague = () =>
+  import('@/components/my/mysecondaryPage/myOrder_children/myOrderLeague')
+const myOrderPersonal = () =>
+  import('@/components/my/mysecondaryPage/myOrder_children/myOrderPersonal')
 const myPersonal = () => import('@/components/my/mysecondaryPage/myPersonal')
-const expenseCalendar = () => import('@/components/my/mysecondaryPage/expenseCalendar')
+const expenseCalendar = () =>
+  import('@/components/my/mysecondaryPage/expenseCalendar')
 const leave = () => import('@/components/my/mysecondaryPage/leave')
 const fiancoIndex = () => import('@/components/my/mysecondaryPage/fiancoIndex')
-const fiancoResult = () => import('@/components/my/mysecondaryPage/fiancoResult')
-const fiancoDetails = () => import('@/components/my/mysecondaryPage/fiancoDetails')
-const messageBoard = () => import('@/components/my/mysecondaryPage/messageBoard')
+const fiancoResult = () =>
+  import('@/components/my/mysecondaryPage/fiancoResult')
+const fiancoDetails = () =>
+  import('@/components/my/mysecondaryPage/fiancoDetails')
+const messageBoard = () =>
+  import('@/components/my/mysecondaryPage/messageBoard')
 const realNameCard = () => import('@/components/realNameCard/realNameCard')
 const siteList = () => import('@/components/order/secondaryPage/siteList')
-const coachScheduling = () => import('@/components/order/secondaryPage/coachScheduling')
-const groupCourseDetails = () => import('@/components/order/secondaryPage/groupCourseDetails')
+const coachScheduling = () =>
+  import('@/components/order/secondaryPage/coachScheduling')
+const groupCourseDetails = () =>
+  import('@/components/order/secondaryPage/groupCourseDetails')
 const login = () => import('@/components/login/login')
 const forgetpassword = () => import('@/components/login/forgetpassword')
 const register = () => import('@/components/login/register')
-const headAccount = () => import('@/components//index/secondaryPage/headAccount')
-const personalDetails = () => import('@/components/my/mysecondaryPage/personalDetails')
+const headAccount = () =>
+  import('@/components//index/secondaryPage/headAccount')
+const personalDetails = () =>
+  import('@/components/my/mysecondaryPage/personalDetails')
 const club = () => import('@/components/dataOrigin/club')
 const branch = () => import('@/components/dataOrigin/branch')
 const member = () => import('@/components/dataOrigin/member')
 const description = () => import('@/components/bindCard/description')
 const selectBindCard = () => import('@/components/bindCard/selectBindCard')
-
-
-import Vue from 'vue'
-import Router from 'vue-router'
-import indexBand from '@/components/indexBand/indexBand'
-// import sleepDetails from '@/components/details/sleepDetails'
-// import reach from '@/components/details/reach'
-import memberBand from '@/components/member/member'
-import myset from '@/components/mySet/myset'
-import pairing from '@/components/pairing/pairing'
-import pairingSuccess from '@/components/pairing/pairingSuccess'
+// 手环项目的路由引入
+const indexBand = () => import('@/components/indexBand/indexBand')
+const memberBand = () => import('@/components/member/member')
+const myset = () => import('@/components/mySet/myset')
+const pairing = () => import('@/components/pairing/pairing')
+const pairingSuccess = () => import('@/components/pairing/pairingSuccess')
 Vue.use(Router)
 
 export default new Router({
@@ -80,7 +99,11 @@ export default new Router({
       children: [
         { path: 'orderSite', name: 'orderSite', component: orderSite },
         { path: 'orderLeague', name: 'orderLeague', component: orderLeague },
-        { path: 'orderPersonal', name: 'orderPersonal', component: orderPersonal }
+        {
+          path: 'orderPersonal',
+          name: 'orderPersonal',
+          component: orderPersonal
+        }
       ]
     },
     {
@@ -89,8 +112,16 @@ export default new Router({
       component: myOrder,
       children: [
         { path: 'myOrderSite', name: 'myOrderSite', component: myOrderSite },
-        { path: 'myOrderLeague', name: 'myOrderLeague', component: myOrderLeague },
-        { path: 'myOrderPersonal', name: 'myOrderPersonal', component: myOrderPersonal }
+        {
+          path: 'myOrderLeague',
+          name: 'myOrderLeague',
+          component: myOrderLeague
+        },
+        {
+          path: 'myOrderPersonal',
+          name: 'myOrderPersonal',
+          component: myOrderPersonal
+        }
       ]
     },
     {
@@ -321,12 +352,14 @@ export default new Router({
     {
       path: '/details/sleepDetails',
       name: 'sleepDetails',
-      component: resolve => require(['@/components/details/sleepDetails'], resolve)
+      component: resolve =>
+        require(['@/components/details/sleepDetails'], resolve)
     },
     {
       path: '/details/heartDetails',
       name: 'heartDetails',
-      component: resolve => require(['@/components/details/heartDetails'], resolve)
+      component: resolve =>
+        require(['@/components/details/heartDetails'], resolve)
     },
     {
       path: '/details/reach',

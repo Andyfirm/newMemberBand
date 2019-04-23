@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       timedata: [
         '00:00',
@@ -155,13 +155,12 @@ export default {
       dataArray: []
     }
   },
-  mounted () {
+  mounted() {
     this.drawLine()
   },
-  components: {
-  },
+  components: {},
   methods: {
-    drawLine () {
+    drawLine() {
       var myDate = new Date()
       var y = myDate.getFullYear()
       var m = myDate.getMonth() + 1
@@ -169,13 +168,17 @@ export default {
       for (var i = 0; i < this.timedata.length; i++) {
         var hehe = Math.floor(Math.random() * 40) + 60
         this.dataArray.push(hehe)
-        var shijian = new Date(y + '/' + m + '/' + d + ' ' + this.timedata[i]).getTime()
+        var shijian = new Date(
+          y + '/' + m + '/' + d + ' ' + this.timedata[i]
+        ).getTime()
         var newDate = new Date().getTime()
         if (shijian > newDate) {
           break
         }
       }
-      let myChart = this.$echarts.init(document.getElementById('heartRate_contain'))
+      let myChart = this.$echarts.init(
+        document.getElementById('heartRate_contain')
+      )
       let option = {
         grid: {
           left: 30,
@@ -224,7 +227,7 @@ export default {
   }
 }
 </script>
-<style scope>
+<style scoped>
 .heartRate_contain {
   width: 100%;
   height: 3.2rem;

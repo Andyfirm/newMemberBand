@@ -24,19 +24,19 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       nowTime: ''
     }
   },
   components: {},
-  mounted () {
+  mounted() {
     setInterval(() => {
       this.nowTime = this.$common.NowTime()
     }, 1000)
   },
   methods: {
-    goReach () {
+    goReach() {
       this.$router.push({ path: '../../details/reach' })
     }
   }

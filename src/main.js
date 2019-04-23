@@ -18,13 +18,13 @@ import '../static/iconfont/iconfont.ttf'
 import VeLine from 'v-charts/lib/line.common'
 import VueScroller from 'vue-scroller'
 import Vconsole from 'vconsole'
-const vConsole = new Vconsole()
-export default vConsole
-Vue.use(VueScroller)
-Vue.use(VueAwesomeSwiper)
-
 import common from '../static/js/index.js'
 import echarts from 'echarts'
+const vConsole = new Vconsole()
+export default vConsole
+
+Vue.use(VueScroller)
+Vue.use(VueAwesomeSwiper)
 Vue.prototype.$common = common
 Vue.prototype.$echarts = echarts
 
@@ -44,13 +44,18 @@ Vue.prototype.$moment = Moment
 Vue.config.productionTip = false
 
 // 监听物理返回键
-window.addEventListener('popstate', (e) => {
+window.addEventListener('popstate', e => {
   let isLogin = window.sessionStorage.getItem('isLogin')
   console.log(router.match(location).hash)
   if (router.match(location).hash === '#/login' && isLogin === 'true') {
     router.push({ name: 'index' })
   }
-  if (router.match(location).hash === '#/myOrder' || router.match(location).hash === '#/myOrder/myOrderSite' || router.match(location).hash === '#/myOrder/myOrderLeague' || router.match(location).hash === '#/myOrder/myOrderPersonal') {
+  if (
+    router.match(location).hash === '#/myOrder' ||
+    router.match(location).hash === '#/myOrder/myOrderSite' ||
+    router.match(location).hash === '#/myOrder/myOrderLeague' ||
+    router.match(location).hash === '#/myOrder/myOrderPersonal'
+  ) {
     router.push({ name: 'myCentre' })
   }
   if (router.match(location).hash === '#/orders/orderPersonal') {
@@ -102,3 +107,10 @@ new Vue({
   render: h => h(App),
   store
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+  document.title = to.meta.title
+  }
+  next()
+  })

@@ -2,22 +2,20 @@
   <div class="footer">
     <footer>
       <span></span>
-        <i>我是有底线的</i>
+      <i>我是有底线的</i>
       <span></span>
     </footer>
   </div>
 </template>
 <script>
 export default {
-  data () {
-    return {
-    }
+  data() {
+    return {}
   },
-  components: {
-  }
+  components: {}
 }
 </script>
-<style scope>
+<style scoped>
 .footer {
   width: 100%;
   margin-top: 0.4rem;

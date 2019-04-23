@@ -52,20 +52,20 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       title: '睡眠监测',
       nowTime: ''
     }
   },
   components: {},
-  mounted () {
+  mounted() {
     setInterval(() => {
       this.nowTime = this.$common.NowTime()
     }, 1000)
   },
   methods: {
-    gosleepDetail () {
+    gosleepDetail() {
       this.$router.push({ path: '../details/sleepDetails' })
     }
   }
@@ -89,7 +89,7 @@ i {
   width: 0.46rem;
   height: 0.46rem;
   margin-top: 0.08rem;
-  background: url("~@/assets/images/shuimian.png") no-repeat center/contain;
+  background: url('~@/assets/images/shuimian.png') no-repeat center/contain;
 }
 .textBox {
   float: left;
@@ -131,7 +131,7 @@ h6 {
   width: 0.22rem;
   height: 0.38rem;
   margin-top: 0.1rem;
-  background: url("~@/assets/images/jiantou_r.png") no-repeat center/contain;
+  background: url('~@/assets/images/jiantou_r.png') no-repeat center/contain;
 }
 .stateBox {
   overflow: hidden;

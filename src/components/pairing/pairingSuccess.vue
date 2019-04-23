@@ -19,38 +19,40 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       macNumber: ''
     }
   },
-  components: {
-  },
+  components: {},
   methods: {
-    back () {
+    back() {
       window.history.go(-1)
     },
-    removeBind () {
+    removeBind() {
       this.macNumber = localStorage.getItem('mac')
-      this.$http.get('https://www.easyserp.com/wristband/wristband', {
-        params: {
-          method: 'binding',
-          mac: this.macNumber
-        }
-      }).then((res) => {
-        if (res.data.msg === 'success') {
-          alert('解绑成功')
-          localStorage.removeItem('mac')
-          this.$router.push({ path: './pairing' })
-        }
-      }).catch((msg) => {
-        alert('网络错误')
-      })
+      this.$http
+        .get('https://www.easyserp.com/wristband/wristband', {
+          params: {
+            method: 'binding',
+            mac: this.macNumber
+          }
+        })
+        .then(res => {
+          if (res.data.msg === 'success') {
+            alert('解绑成功')
+            localStorage.removeItem('mac')
+            this.$router.push({ path: './pairing' })
+          }
+        })
+        .catch(msg => {
+          alert('网络错误')
+        })
     }
   }
 }
 </script>
-<style scope>
+<style scoped>
 .wrap {
   overflow: hidden;
 }
@@ -68,7 +70,7 @@ export default {
   width: 1.64rem;
   height: 2.16rem;
   margin: 0.98rem auto 0.56rem;
-  background: url("~@/assets/images/shouhuanBanner.png") no-repeat center/cover;
+  background: url('~@/assets/images/shouhuanBanner.png') no-repeat center/cover;
 }
 .wrap p {
   text-align: center;
@@ -81,9 +83,9 @@ export default {
   width: 5.5rem;
   height: 0.9rem;
   margin: 0.32rem auto 0;
-  color: #3699FF;
-  background-color: #F2F2F2F2;
-  border: 1px solid #CCC;
+  color: #3699ff;
+  background-color: #f2f2f2f2;
+  border: 1px solid #ccc;
   border-radius: 23px;
 }
 .list {
@@ -96,7 +98,7 @@ export default {
 .list li {
   overflow: hidden;
   padding: 0.4rem 0;
-  border-bottom: 1px solid #BFBFBF;
+  border-bottom: 1px solid #bfbfbf;
 }
 .list li span {
   float: left;

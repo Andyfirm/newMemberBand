@@ -48,9 +48,9 @@ export default {
     }
   },
   created() {
-    // let token = 'oiqtX1A_fD5ePsjGMiNvIQ0FzRBw' //  oiqtX1A_fD5ePsjGMiNvIQ0FzRBw oQc9-jqBcb53o8R0s9yr1ydyeVZY
-    // window.sessionStorage.setItem('token', token)
-    // this.token = token
+    let token = 'oiqtX1A_fD5ePsjGMiNvIQ0FzRBw' //  oiqtX1A_fD5ePsjGMiNvIQ0FzRBw oQc9-jqBcb53o8R0s9yr1ydyeVZY
+    window.sessionStorage.setItem('token', token)
+    this.token = token
     window.sessionStorage.setItem('isLogin', 'false')
   },
   methods: {

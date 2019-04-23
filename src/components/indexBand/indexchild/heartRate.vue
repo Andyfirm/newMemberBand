@@ -22,17 +22,19 @@
 <script>
 import echatsBiao from '../.././common/echatsBiao'
 export default {
-  data () {
+  data() {
     return {
       title: '心率监测',
       heartRateNumber: 0,
       nowTime: ''
     }
   },
-  created () {
-    this.heartRateNumber = JSON.parse(sessionStorage.getItem('infoData')).broadcastData.heartRate
+  created() {
+    this.heartRateNumber = JSON.parse(
+      sessionStorage.getItem('infoData')
+    ).broadcastData.heartRate
   },
-  mounted () {
+  mounted() {
     setInterval(() => {
       this.nowTime = this.$common.NowTime()
     }, 1000)
@@ -41,13 +43,13 @@ export default {
     echatsBiao: echatsBiao
   },
   methods: {
-    goheartDetails () {
+    goheartDetails() {
       this.$router.push({ path: '../../details/heartDetails' })
     }
   }
 }
 </script>
-<style scope>
+<style scoped>
 .heartRate {
   width: 100%;
   /* height: 4rem; */
@@ -63,7 +65,7 @@ export default {
   float: left;
   width: 0.46rem;
   height: 0.46rem;
-  background: url("~@/assets/images/shuimian.png") no-repeat center/contain;
+  background: url('~@/assets/images/shuimian.png') no-repeat center/contain;
 }
 .textBox {
   float: left;
@@ -98,7 +100,7 @@ h6 {
   color: #999;
 }
 .heartRate .l_img {
-  background-image: url("~@/assets/images/xinlv.png");
+  background-image: url('~@/assets/images/xinlv.png');
 }
 .heartRate .number {
   font-size: 0.28rem;

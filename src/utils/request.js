@@ -6,12 +6,15 @@ const service = axios.create({
   baseURL: 'https://www.easyserp.com/wristband/wristband',
   timeout: 15000 // 请求超时时间
 })
-service.interceptors.request.use(config => {
-  return config
-}, error => {
-  console.log(error)
-  Promise.reject(error)
-})
+service.interceptors.request.use(
+  config => {
+    return config
+  },
+  error => {
+    console.log(error)
+    Promise.reject(error)
+  }
+)
 
 service.interceptors.response.use(
   response => {

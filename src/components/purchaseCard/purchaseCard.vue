@@ -4,7 +4,11 @@
     <ul v-if="cardList.length > 0">
       <li class="cardBox" v-for="item of cardList" :key="item.id">
         <div class="imgBox_wrap" @click="showCard(item)">
-          <img :src="'./static/images/clubid' + clubId + '/hyk/' + (item.infCs?item.infCs.imgpath:'default.png')" onerror="this.src='./static/images/default/default.png'" alt>
+          <img
+            :src="'./static/images/clubid' + clubId + '/hyk/' + (item.infCs?item.infCs.imgpath:'default.png')"
+            onerror="this.src='./static/images/default/default.png'"
+            alt
+          >
           <div class="imgBox">
             <h6>{{item.cardName?item.cardName:''}}</h6>
             <p></p>
@@ -35,7 +39,11 @@
       >
         <div class="boxWrap">
           <div class="cardBoxInfo">
-            <img :src="'./static/images/clubid' + clubId + '/hyk/'+ (hykdetailsItem.infCs?hykdetailsItem.infCs.imgpath:'default.png')" onerror="this.src='./static/images/default/default.png'" alt>
+            <img
+              :src="'./static/images/clubid' + clubId + '/hyk/'+ (hykdetailsItem.infCs?hykdetailsItem.infCs.imgpath:'default.png')"
+              onerror="this.src='./static/images/default/default.png'"
+              alt
+            >
             <div class="hykdetails_wenzi">
               <div class="cardName">{{hykdetailsItem.infCs.name}}</div>
               <div class="money">{{hykdetailsItem.weChatPrice}}元</div>

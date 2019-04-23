@@ -3,7 +3,9 @@
     <header>
       <div class="back" @click="back()"></div>
       <div class="topBox">
-        <div class="number"><i class="heartRateNumber">{{ this.heartRateNumber }}</i>次/分</div>
+        <div class="number">
+          <i class="heartRateNumber">{{ this.heartRateNumber }}</i>次/分
+        </div>
         <p class="dateTime">{{this.nowTime}}</p>
       </div>
       <echatsBiao></echatsBiao>
@@ -13,27 +15,41 @@
     <div class="classify">
       <ul>
         <li>
-          <div class="number"><i>{{ this.getData.maxHeartrate }}</i>次/分</div>
+          <div class="number">
+            <i>{{ this.getData.maxHeartrate }}</i>次/分
+          </div>
           <p>最高心率</p>
         </li>
         <li>
-          <div class="number"><i>{{ this.getData.minHeartrate }}</i>次/分</div>
+          <div class="number">
+            <i>{{ this.getData.minHeartrate }}</i>次/分
+          </div>
           <p>最低心率</p>
         </li>
         <li>
-          <div class="number"><i class="heartRateNumber">{{ this.getData.aveHeartrate }}</i>次/分</div>
+          <div class="number">
+            <i class="heartRateNumber">{{ this.getData.aveHeartrate }}</i>次/分
+          </div>
           <p>平均心率</p>
         </li>
         <li>
-          <div class="number"><i>{{ this.getData.aerobicNumber }}</i>分钟</div>
+          <div class="number">
+            <i>{{ this.getData.aerobicNumber }}</i>分钟
+          </div>
           <p>有氧燃脂</p>
         </li>
         <li>
-          <div class="number"><i>1</i>时<i>45</i>分</div>
+          <div class="number">
+            <i>1</i>时
+            <i>45</i>分
+          </div>
           <p>舒适缓解</p>
         </li>
         <li>
-          <div class="number"><i>1</i>时<i>34</i>分</div>
+          <div class="number">
+            <i>1</i>时
+            <i>34</i>分
+          </div>
           <p>活力运动</p>
         </li>
       </ul>
@@ -41,16 +57,14 @@
     <!-- 小贴士 -->
     <div class="shuomingBox">
       <div class="h_top">心率小贴士</div>
-      <p>
-        正常成人安静状态下，测量心率每分钟在60到100次，低于60次每分钟考虑窦性心动过缓，心率高于每分钟100次考虑窦性心动过速，通常安静状态下，心动偏慢，活动或者情绪激动可使心率增加。
-      </p>
+      <p>正常成人安静状态下，测量心率每分钟在60到100次，低于60次每分钟考虑窦性心动过缓，心率高于每分钟100次考虑窦性心动过速，通常安静状态下，心动偏慢，活动或者情绪激动可使心率增加。</p>
     </div>
   </div>
 </template>
 <script>
 import echatsBiao from '../common/echatsBiao'
 export default {
-  data () {
+  data() {
     return {
       nowTime: '',
       heartRateNumber: 100,
@@ -67,19 +81,19 @@ export default {
   components: {
     echatsBiao: echatsBiao
   },
-  mounted () {
+  mounted() {
     setInterval(() => {
       this.nowTime = this.$common.TimeNow()
     }, 1000)
   },
   methods: {
-    back () {
+    back() {
       this.$router.push({ name: 'indexBand' })
     }
   }
 }
 </script>
-<style scope>
+<style scoped>
 .heartDetails header {
   overflow: hidden;
   position: relative;
@@ -92,7 +106,7 @@ export default {
   left: 0.4rem;
   width: 0.3rem;
   height: 0.4rem;
-  background: url("~@/assets/images/xinlvback.png") no-repeat center/cover;
+  background: url('~@/assets/images/xinlvback.png') no-repeat center/cover;
 }
 .heartDetails .topBox {
   width: 100%;
@@ -105,7 +119,7 @@ export default {
 }
 .heartDetails .topBox .number i {
   font-size: 0.6rem;
-  color: #FC726E;
+  color: #fc726e;
 }
 .heartDetails .topBox p {
   font-size: 0.24rem;
@@ -131,7 +145,7 @@ export default {
   color: #333;
 }
 .heartDetails .classify .number i {
-  color: #FC726E;
+  color: #fc726e;
   font-size: 0.5rem;
 }
 .heartDetails .classify p {
