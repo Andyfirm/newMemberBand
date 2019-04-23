@@ -77,7 +77,6 @@ const pairing = () => import('@/components/pairing/pairing')
 const pairingSuccess = () => import('@/components/pairing/pairingSuccess')
 Vue.use(Router)
 
-
 export default new Router({
   linkActiveClass: 'myactive',
   routes: [
