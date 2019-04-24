@@ -188,11 +188,13 @@ export default {
       publicUrl({ method: 'retrieveData' })
         .then(res => {
           console.log(res)
+          this.changeHide = false
+          this.isActive = true
           if (res.broadcastData !== '') {
-            this.changeHide = false
-            this.isActive = true
             this.stepcount = res.broadcastData.stepCount
             this.heartRateNumber = res.broadcastData.heartRate
+          }else {
+            this.stepcount = 0
           }
         })
         .catch(msg => {

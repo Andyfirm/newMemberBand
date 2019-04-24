@@ -19,6 +19,7 @@ export default {
 .footer {
   width: 100%;
   margin-top: 0.4rem;
+  padding-bottom: 1.5rem;
 }
 footer span {
   float: left;

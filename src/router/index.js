@@ -71,7 +71,6 @@ const description = () => import('@/components/bindCard/description')
 const selectBindCard = () => import('@/components/bindCard/selectBindCard')
 // 手环项目的路由引入
 const indexBand = () => import('@/components/indexBand/indexBand')
-const memberBand = () => import('@/components/member/member')
 const myset = () => import('@/components/mySet/myset')
 const pairing = () => import('@/components/pairing/pairing')
 const pairingSuccess = () => import('@/components/pairing/pairingSuccess')
@@ -338,11 +337,6 @@ export default new Router({
       meta: {
         keepAlive: true
       }
-    },
-    {
-      path: '/memberBand',
-      name: 'memberBand',
-      component: memberBand
     },
     {
       path: '/indexBand',
